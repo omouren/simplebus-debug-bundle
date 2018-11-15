@@ -2,7 +2,7 @@
     "name": "omouren/simplebus-debug-bundle",
     "type": "symfony-bundle",
     "description": "Debug your SimpleBus EventBus and CommandBus",
-    "keywords": ["debug", "event"],
+    "keywords": ["Symfony", "debug", "event"],
     "license": "MIT",
     "authors": [
         {
@@ -16,9 +16,8 @@
         "simple-bus/symfony-bridge": "^5.1"
     },
     "autoload": {
-        "psr-0": { "Omouren\\SimpleBusDebugBundle": "" }
+        "psr-4": { "Omouren\\SimpleBusDebugBundle\\": "src" }
     },
-    "target-dir": "Omouren/SimpleBusDebugBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
