@@ -1,0 +1,12 @@
+services:
+    Omouren\SimpleBusDebugBundle\Command\DebugEventBusCommand:
+        arguments:
+            - '@simple_bus.event_bus.event_subscribers_collection'
+        tags:
+            - { name: console.command }
+
+    Omouren\SimpleBusDebugBundle\Command\DebugCommandBusCommand:
+        arguments:
+            - '@simple_bus.command_bus.command_handler_map'
+        tags:
+            - { name: console.command }
