@@ -6,6 +6,9 @@ use SimpleBus\Message\CallableResolver\CallableCollection;
 use SimpleBus\Message\CallableResolver\CallableMap;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+/**
+ * @author Olivier Mouren <mouren.olivier@gmail.com>
+ */
 class TextDescriptor extends Descriptor
 {
     protected function describeEventBus(CallableCollection $callables, array $options = array())
@@ -49,9 +52,9 @@ class TextDescriptor extends Descriptor
 
         $options['output']->title($title);
         if (null !== $command) {
-            $handlers = $callables->get($command);
+            $handler = $callables->get($command);
 
-            $this->renderCommandHandlerTable([$handlers], $options['output']);
+            $this->renderCommandHandlerTable([$handler], $options['output']);
         } else {
             $getCallables = function () { return $this->callablesByName; };
             $handlers = $getCallables->call($callables);
@@ -100,16 +103,12 @@ class TextDescriptor extends Descriptor
             return sprintf('%s::%s()', \get_class($callable[0]), $callable[1]);
         }
 
-        if (\is_array($callable) && isset($callable['serviceId']) && $callable['method']) {
+        if (\is_array($callable) && isset($callable['serviceId']) && isset($callable['method'])) {
             return sprintf('%s::%s()', $callable['serviceId'], $callable['method']);
         }
 
         if (\is_string($callable)) {
             return sprintf('%s()', $callable);
-        }
-
-        if (method_exists($callable, '__invoke')) {
-            return sprintf('%s::__invoke()', \get_class($callable));
         }
 
         throw new \InvalidArgumentException('Callable is not describable.');

@@ -7,6 +7,9 @@ use SimpleBus\Message\CallableResolver\CallableMap;
 use Symfony\Component\Console\Descriptor\DescriptorInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * @author Olivier Mouren <mouren.olivier@gmail.com>
+ */
 abstract class Descriptor implements DescriptorInterface
 {
     /**
