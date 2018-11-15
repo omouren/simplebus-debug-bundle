@@ -33,6 +33,7 @@ Usage
 =====
 
 ```
-omouren:debug:simple-bus:event-bus
-omouren:debug:simple-bus:command-bus
+omouren:debug:simple-bus:event-bus [--format=(txt,md,json,xml)] [<eventName>]
+
+omouren:debug:simple-bus:command-bus [--format=(txt,md,json,xml)] [<commandName>]
 ```
