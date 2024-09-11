@@ -54,5 +54,7 @@ class DebugEventBusCommand extends Command
         $options['raw_text'] = $input->getOption('raw');
         $options['output'] = $io;
         $helper->describe($io, $this->eventBusSubscribersCollection, $options);
+
+        return 0;
     }
 }
